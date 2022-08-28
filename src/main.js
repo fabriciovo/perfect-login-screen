@@ -1,6 +1,4 @@
 import * as THREE from "three";
-import FirstPerson from "./FirstPerson";
-import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
