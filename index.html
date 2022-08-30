@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="htmlstyle.css">
     <title>Vite + TS</title>
   </head>
   <body>
-    <div style="position:absolute; top: 50%; left:50%">
-      LOGIN
-      <form >
-        <input type="text" placeholder="USERNAME" style="display:block">
-        <input type="password" placeholder="PASSWORD" style="display:block">
-        <input type="submit" value="Login">
+    <div id="logon">
+      <p>LOGIN</p>
+      <form class="form">
+        <label>Username<input class="inputs" id="ease-in" type="text"></label>
+        <label>Password<input class="inputs" id="ease-in" type="password"></label>
+        <input class="inputs" type="submit" value="Login">
         <p>
           <input type="button" value="Create account">
           <input type="button" value="Forgot password">
