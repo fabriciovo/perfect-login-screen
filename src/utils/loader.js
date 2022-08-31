@@ -1,7 +1,9 @@
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
-async function loader(mtlFile, objFile) {
+
+async function loaderObj(mtlFile, objFile) {
     this.mtlFile = mtlFile
     this.objFile = objFile
 
@@ -15,10 +17,15 @@ async function loader(mtlFile, objFile) {
 
     const modelRoot = await this.objLoader.loadAsync(this.objFile);
 
-    modelRoot.position.x = this.position.x;
-    modelRoot.position.y = this.position.y;
-    modelRoot.position.z = this.position.z;
-
     return modelRoot;
+}
+
+
+export async function loaderFBX(fbxFile) {
+    const fbxloader = new FBXLoader();
+
+    const fbxObject = await fbxloader.loadAsync(fbxFile)
+
+    return fbxObject;
 }
 

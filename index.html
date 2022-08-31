@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="htmlstyle.css">
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="logon">
-      <p>LOGIN</p>
-      <form class="form">
-        <label>Username<input class="inputs" id="ease-in" type="text"></label>
-        <label>Password<input class="inputs" id="ease-in" type="password"></label>
-        <input class="inputs" type="submit" value="Login">
-        <p>
-          <input type="button" value="Create account">
-          <input type="button" value="Forgot password">
-        </p>
 
-      </form>
-    </div>
-    <canvas id="app"></canvas>
-    <script type="module" src="/src/main.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="htmlstyle.css">
+  <title>The Perfect Login Screen</title>
+</head>
+<style>
+  body {
+    margin: 0;
+  }
 
-  </body>
+  canvas {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+  }
+</style>
+
+<body>
+  <div id="logon">
+    <p>LOGIN</p>
+    <form class="form">
+      <label>Username<input class="inputs" id="ease-in" type="text"></label>
+      <label>Password<input class="inputs" id="ease-in" type="password"></label>
+      <input class="inputs" type="submit" value="Login">
+      <p>
+        <input type="button" value="Create account">
+        <input type="button" value="Forgot password">
+      </p>
+
+    </form>
+  </div>
+  <canvas id="app"></canvas>
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+
 </html>

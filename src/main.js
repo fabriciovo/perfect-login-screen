@@ -1,4 +1,7 @@
 import * as THREE from "three";
+import Nebula, { SpriteRenderer } from "three-nebula";
+import json from "./my-particle-system.json";
+import { loaderFBX } from "./utils/loader";
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
@@ -10,67 +13,56 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(WIDTH, HEIGHT);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
 camera.position.y = 10;
-
-const vertex = new THREE.Vector3();
-const color = new THREE.Color();
+camera.position.z = 100;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0xffffff );
-scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+scene.background = new THREE.Color( 0x1B2631  );
 
-const light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
-light.position.set(0.5, 1, 0.75);
-scene.add(light);
 
-// floor
+const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+hemiLight.position.set( 0, 200, 0 );
+scene.add( hemiLight );
 
-let floorGeometry = new THREE.PlaneGeometry(2000, 2000, 100, 100);
-floorGeometry.rotateX(- Math.PI / 2);
+const dirLight = new THREE.DirectionalLight( 0xffffff );
+dirLight.position.set( 0, 200, 100 );
+dirLight.castShadow = true;
+dirLight.shadow.camera.top = 180;
+dirLight.shadow.camera.bottom = - 100;
+dirLight.shadow.camera.left = - 120;
+dirLight.shadow.camera.right = 120;
+scene.add( dirLight );
 
-// vertex displacement
+const fbx = await loaderFBX('assets/dungeon.fbx')
+fbx.position.z = 260;
+fbx.position.y = -130;
+fbx.position.x = 1395;
+scene.add(fbx)
 
-let position = floorGeometry.attributes.position;
 
-for (let i = 0, l = position.count; i < l; i++) {
+Nebula.fromJSONAsync(json, THREE).then(loaded => {
+  const nebulaRenderer = new SpriteRenderer(scene, THREE);
+  const nebula = loaded.addRenderer(nebulaRenderer);
+  animate(nebula);
+});
 
-  vertex.fromBufferAttribute(position, i);
 
-  vertex.x += Math.random() * 20 - 10;
-  vertex.y += Math.random() * 2;
-  vertex.z += Math.random() * 20 - 10;
+function animate(nebula) {
+  requestAnimationFrame(() => animate(nebula));
 
-  position.setXYZ(i, vertex.x, vertex.y, vertex.z);
-
+  nebula.update();
+  renderer.render(scene, camera);
 }
 
-floorGeometry = floorGeometry.toNonIndexed(); // ensure each face has unique vertices
 
-position = floorGeometry.attributes.position;
-const colorsFloor = [];
+window.addEventListener( 'resize', onWindowResize, false );
 
-for (let i = 0, l = position.count; i < l; i++) {
+function onWindowResize(){
 
-  color.setHSL(Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75);
-  colorsFloor.push(color.r, color.g, color.b);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
-
-floorGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colorsFloor, 3));
-
-const floorMaterial = new THREE.MeshBasicMaterial({ vertexColors: true });
-
-const floor = new THREE.Mesh(floorGeometry, floorMaterial);
-scene.add(floor);
-
-
-
-function tick() {
-  // scene.update();
-  renderer.render(scene, camera)
-
-  requestAnimationFrame(tick);
-}
-
-tick();
