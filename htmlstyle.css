@@ -1,10 +1,19 @@
 #logon {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  background: rgba(255, 255, 255, 0.6);
+  top: 30%;
+  left: 40%;
+  background: rgba(29, 36, 57, 0.8);
   background-clip: border-box;
   padding: 50px;
+  border-radius: 100px;
+  transition: padding 0.5s;
+}
+#logon:hover {
+  transition: all 0.51s ease-in-out;
+  border-radius: 0px;
+  padding: 100px;
+  left: 37%;
+  background: rgba(29, 36, 57, 255);
 }
 
 .inputs {
@@ -14,6 +23,6 @@
   width: 20px;
   transition: width 0.4s ease-in-out;
 }
-#ease-in:focus {
+#ease-in:hover {
   width: 100%;
 }
