@@ -49,7 +49,7 @@ export default class CastleScene extends THREE.Scene {
         Nebula.fromJSONAsync(fire, THREE).then(loaded => {
             loaded.emitters.forEach(emitter => {
                 emitter.position.y = 26;
-                emitter.position.x = -68;
+                emitter.position.x = -69;
                 emitter.rotation.x = -120
             })
             const nebulaRenderer = new SpriteRenderer(this, THREE);
@@ -62,7 +62,7 @@ export default class CastleScene extends THREE.Scene {
             loaded.emitters.forEach(emitter => {
                 console.log(emitter);
                 emitter.position.y = 26;
-                emitter.position.x = 55;
+                emitter.position.x = 56;
                 emitter.rotation.x = -120
             })
             const nebulaRenderer = new SpriteRenderer(this, THREE);
