@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="htmlstyle.css">
   <title>The Perfect Login Screen</title>
 </head>
@@ -22,10 +25,12 @@
 
 <body>
   <div id="logon">
-    <p>LOGIN</p>
+    <h1>LOGIN</h1>
     <form class="form">
-      <label>Username<input class="inputs" id="ease-in" type="text"></label>
-      <label>Password<input class="inputs" id="ease-in" type="password"></label>
+      <label for="ease-in">Username</label>
+      <input class="inputs" id="ease-in" type="text">
+      <label for="ease-in2">Password</label>
+      <input class="inputs" id="ease-in2" type="password">
       <input class="login-button" type="submit" value="Login">
       <p>
         <input class="buttons" type="button" value="Create account">
