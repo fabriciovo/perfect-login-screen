@@ -18,6 +18,9 @@
 
 .inputs {
   display: block;
+  background-color: rgba(84, 109, 179, 255);
+  border-radius: 15%;
+  height: 40px;
 }
 #ease-in {
   width: 20px;
@@ -25,4 +28,23 @@
 }
 #ease-in:hover {
   width: 100%;
+}
+#ease-in:focus {
+  width: 100%;
+}
+
+.buttons {
+  background-color: rgba(69, 89, 146, 255);
+  width: 150px;
+}
+.login-button {
+  background-color: rgba(84, 109, 179, 255);
+  width: 300px;
+  margin-top: 15px;
+  height: 35px;
+  border-radius: 15%;
+  border: 0;
+}
+.login-button:hover {
+  background-color: rgba(69, 89, 146, 255);
 }
