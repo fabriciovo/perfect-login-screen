@@ -1,4 +1,5 @@
 import CastleScene from "./threejs/castleScene";
+import CubeScene from "./threejs/cubeScene";
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
