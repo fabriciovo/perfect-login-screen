@@ -111,8 +111,8 @@
           "type": "Force",
           "properties": {
             "fx": 0,
-            "fy": 0,
-            "fz": -20,
+            "fy": 20,
+            "fz": 0,
             "life": null,
             "easing": "easeLinear"
           }
