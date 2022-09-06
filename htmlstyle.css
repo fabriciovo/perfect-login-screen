@@ -1,3 +1,5 @@
+@import url("hover.css");
+
 #logon {
   position: absolute;
   top: 30%;
@@ -101,3 +103,4 @@
 .login-button:hover {
   background-color: rgba(69, 89, 146, 255);
 }
+

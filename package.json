@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.9",
+    "hover.css": "^2.3.2",
     "three": "^0.143.0",
     "three-nebula": "10.0.3"
   }
