@@ -1,7 +1,7 @@
 #logon {
   position: absolute;
   top: 30%;
-  left: 38%;
+  left: 40%;
   background: rgba(29, 36, 57, 0.8);
   background-clip: border-box;
   padding: 50px;
@@ -9,22 +9,33 @@
   transition: padding 0.5s;
   font-family: "MedievalSharp", cursive;
 }
+
 #logon h1 {
   font-size: 45px;
   text-align: center;
   color: rgba(98, 1, 4, 255);
   font-weight: bolder;
 }
+
 #logon label {
   color: rgba(84, 109, 179, 255);
   font-size: 20px;
 }
+
 #logon:hover {
   transition: all 0.51s ease-in-out;
   border-radius: 0px;
   padding: 50px;
-  left: 38%;
+  left: 40%;
   background: rgba(29, 36, 57, 255);
+}
+
+#logon:not( :hover) {
+  transition: all 0.51s ease-in-out;
+  border-radius: 100px;
+  padding: 50px;
+  left: 40%;
+  background: rgba(29, 36, 57, 0.8);
 }
 
 .inputs {
@@ -33,23 +44,29 @@
   border-radius: 15%;
   height: 40px;
 }
+
 #ease-in {
   width: 20px;
   transition: width 0.4s ease-in-out;
 }
+
 #ease-in:hover {
   width: 100%;
 }
+
 #ease-in:focus {
   width: 100%;
 }
+
 #ease-in2 {
   width: 20px;
   transition: width 0.4s ease-in-out;
 }
+
 #ease-in2:hover {
   width: 100%;
 }
+
 #ease-in2:focus {
   width: 100%;
 }
@@ -64,9 +81,11 @@
   color: rgba(84, 109, 179, 30);
   font-family: "MedievalSharp", cursive;
 }
+
 .buttons:hover {
   background-color: #07090e;
 }
+
 .login-button {
   background-color: rgba(84, 109, 179, 255);
   width: 300px;
@@ -78,6 +97,7 @@
   font-size: larger;
   font-family: "MedievalSharp", cursive;
 }
+
 .login-button:hover {
   background-color: rgba(69, 89, 146, 255);
 }
